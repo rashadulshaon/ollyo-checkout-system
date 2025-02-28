@@ -29,18 +29,19 @@ class Controller
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
+        // TODO: Loop through the actual products array and create Items
         $item = new Item();
         $item->setName('Test Product from Ollyo')
             ->setCurrency('USD')
             ->setQuantity(1)
-            ->setPrice('10.00');
+            ->setPrice($_POST['payableAmount']);
 
         $itemList = new ItemList();
         $itemList->addItem($item);
 
         $amount = new Amount();
         $amount->setCurrency('USD')
-            ->setTotal('10.00');
+            ->setTotal($_POST['payableAmount']);
 
         $transaction = new Transaction();
         $transaction->setAmount($amount)
