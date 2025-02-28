@@ -1,3 +1,8 @@
+# Paypal test credentials
+email: ollyo_user@example.com
+password: iamgroot
+
+
 # PHP Task: Shopping Cart Checkout System
 
 ## Overview
