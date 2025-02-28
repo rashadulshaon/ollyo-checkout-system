@@ -68,17 +68,25 @@ if (!function_exists('view')) {
     }
 }
 
-function escapeData(array $data)
-{
-    $escapedData = [];
-    foreach ($data as $key => $value) {
-        if (is_array($value)) {
-            $escapedData[$key] = escapeData($value);
-        } else {
-            $escapedData[$key] = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+if (!function_exists('escapeData')) {
+    /**
+     * Escapes special characters in an array of data.
+     * 
+     * @param array $data The data to be escaped.
+     * @return array The escaped data.
+     */
+    function escapeData(array $data)
+    {
+        $escapedData = [];
+        foreach ($data as $key => $value) {
+            if (is_array($value)) {
+                $escapedData[$key] = escapeData($value);
+            } else {
+                $escapedData[$key] = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+            }
         }
+        return $escapedData;
     }
-    return $escapedData;
 }
 
 
