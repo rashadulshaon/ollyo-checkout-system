@@ -68,6 +68,7 @@ $total = $subtotal + $shippingCost;
                 <div>
                     <h2 class="font-semibold text-xl">Shipping Information</h2>
                     <div class="space-y-4 mt-4">
+                        <input type="hidden" name="payableAmount" value="<?= $total ?>">
                         <div class="space-y-1 flex flex-col">
                             <label class="text-sm text-gray-800 font-medium" for="name">Full Name</label>
                             <input type="text" name="name" placeholder="Enter your full name" value="<?php echo $address['name']; ?>" id="name" class="bg-white px-2 text-sm rounded-md border border-gray-300 h-10 placeholder:text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2">
